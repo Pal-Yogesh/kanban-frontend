@@ -34,7 +34,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const API_BASE_URL = 'https://kanban-backend-nvzq.onrender.com/api';
+  const API_BASE_URL = 'https://kanban-backend-ddcw.onrender.com/api';
 
   useEffect(() => {
     const savedToken = localStorage.getItem('token');
@@ -73,7 +73,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, []);
 
   const login = useCallback(async (email: string, password: string) => {
-    try {
+   
       const response = await fetch(`${API_BASE_URL}/auth/signin`, {
         method: 'POST',
         headers: {
@@ -91,13 +91,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       setToken(data.token);
       setUser(data.user);
       localStorage.setItem('token', data.token);
-    } catch (error) {
-      throw error;
-    }
+   
   }, []);
 
   const signup = useCallback(async (name: string, email: string, password: string) => {
-    try {
+   
       const response = await fetch(`${API_BASE_URL}/auth/signup`, {
         method: 'POST',
         headers: {
@@ -115,9 +113,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       setToken(data.token);
       setUser(data.user);
       localStorage.setItem('token', data.token);
-    } catch (error) {
-      throw error;
-    }
+   
   }, []);
 
 
