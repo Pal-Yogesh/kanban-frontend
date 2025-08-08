@@ -36,7 +36,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const API_BASE_URL = 'https://kanban-backend-nvzq.onrender.com/api';
 
-  // Check for existing token on app load
   useEffect(() => {
     const savedToken = localStorage.getItem('token');
     if (savedToken) {
